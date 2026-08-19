@@ -60,10 +60,10 @@ function FloatingPixels() {
     <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
       {[
         { top: "18%", left: "8%", size: 10, delay: "0s", color: "bg-primary" },
-        { top: "62%", left: "14%", size: 6, delay: "1.2s", color: "bg-cyan" },
+        { top: "8%", left: "62%", size: 6, delay: "1.2s", color: "bg-cyan" },
         { top: "30%", left: "84%", size: 8, delay: "0.6s", color: "bg-primary/70" },
         { top: "74%", left: "78%", size: 12, delay: "2s", color: "bg-violet" },
-        { top: "48%", left: "48%", size: 5, delay: "1.6s", color: "bg-primary/40" },
+        { top: "88%", left: "40%", size: 5, delay: "1.6s", color: "bg-primary/40" },
       ].map((p, i) => (
         <span
           key={i}
