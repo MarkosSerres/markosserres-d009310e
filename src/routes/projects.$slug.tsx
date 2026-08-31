@@ -96,11 +96,19 @@ function CaseStudy() {
 
         <section className="mx-auto max-w-[1400px] px-5 py-16 sm:px-8">
           <Reveal>
-            <MediaPlaceholder
-              file={project.images[0] ?? "hero.png"}
-              tone={project.accent ?? "primary"}
-              className="aspect-[16/8] w-full"
-            />
+            {project.heroImage ? (
+              <img
+                src={project.heroImage}
+                alt={title}
+                className="aspect-[16/8] w-full object-cover"
+              />
+            ) : (
+              <MediaPlaceholder
+                file={project.images[0] ?? "hero.png"}
+                tone={project.accent ?? "primary"}
+                className="aspect-[16/8] w-full"
+              />
+            )}
           </Reveal>
         </section>
 

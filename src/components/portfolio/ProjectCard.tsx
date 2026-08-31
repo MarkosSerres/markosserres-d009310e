@@ -19,11 +19,19 @@ export function ProjectCard({ project, className }: { project: Project; classNam
       )}
     >
       <div className="relative flex-1 overflow-hidden">
-        <MediaPlaceholder
-          file={project.images[0] ?? "placeholder.png"}
-          tone={project.accent ?? "primary"}
-          className="h-full min-h-[220px] w-full border-0 transition-transform duration-700 group-hover:scale-[1.03]"
-        />
+        {project.heroImage ? (
+          <img
+            src={project.heroImage}
+            alt={title}
+            className="h-full min-h-[220px] w-full border-0 object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+          />
+        ) : (
+          <MediaPlaceholder
+            file={project.images[0] ?? "placeholder.png"}
+            tone={project.accent ?? "primary"}
+            className="h-full min-h-[220px] w-full border-0 transition-transform duration-700 group-hover:scale-[1.03]"
+          />
+        )}
         <span className="absolute top-3 left-3 bg-background/80 px-2 py-1 font-mono text-[10px] tracking-widest text-primary uppercase">
           {project.category[lang]}
         </span>
