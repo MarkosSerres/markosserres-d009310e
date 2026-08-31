@@ -1,4 +1,5 @@
 import arcadeHeroAsset from "@/assets/arcade-hero.png.asset.json";
+import runeRumbleBackgrounds from "@/assets/rune-rumble-backgrounds.png";
 import type { Lang } from "./i18n";
 
 export type Bi = { pt: string; en: string };
@@ -11,7 +12,7 @@ export type CaseBlock = {
   heading: Bi;
   body?: Bi;
   /** clearly-marked placeholder media slots, no invented assets */
-  media?: { file: string; caption: Bi }[];
+  media?: { file: string; caption: Bi; image?: string }[];
 };
 
 export type Project = {
@@ -77,7 +78,11 @@ export const projects: Project[] = [
       {
         heading: { pt: "Direção de Arte", en: "Art Direction" },
         media: [
-          { file: "rune-rumble-backgrounds.png", caption: { pt: "Backgrounds", en: "Backgrounds" } },
+          {
+            file: "rune-rumble-backgrounds.png",
+            caption: { pt: "Backgrounds", en: "Backgrounds" },
+            image: runeRumbleBackgrounds,
+          },
           { file: "rune-rumble-menu.png", caption: { pt: "Menus", en: "Menus" } },
           { file: "rune-rumble-animations.gif", caption: { pt: "Animações", en: "Animations" } },
         ],

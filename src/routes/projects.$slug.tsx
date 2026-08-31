@@ -134,15 +134,25 @@ function CaseStudy() {
               ) : null}
               {block.media ? (
                 <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                  {block.media.map((m) => (
-                    <MediaPlaceholder
-                      key={m.file}
-                      file={m.file}
-                      label={m.caption[lang]}
-                      tone={project.accent ?? "primary"}
-                      className="aspect-[4/3]"
-                    />
-                  ))}
+                  {block.media.map((m) =>
+                    m.image ? (
+                      <div key={m.file} className="overflow-hidden border border-border bg-surface">
+                        <img
+                          src={m.image}
+                          alt={m.caption[lang]}
+                          className="aspect-[4/3] w-full object-cover"
+                        />
+                      </div>
+                    ) : (
+                      <MediaPlaceholder
+                        key={m.file}
+                        file={m.file}
+                        label={m.caption[lang]}
+                        tone={project.accent ?? "primary"}
+                        className="aspect-[4/3]"
+                      />
+                    ),
+                  )}
                 </div>
               ) : null}
             </Reveal>
