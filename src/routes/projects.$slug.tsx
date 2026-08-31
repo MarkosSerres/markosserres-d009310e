@@ -22,7 +22,7 @@ export const Route = createFileRoute("/projects/$slug")({
   head: ({ params, loaderData }) => {
     const title = loaderData ? `${loaderData.project.titleEN} — Markos Serres` : "Projeto — Markos Serres";
     const description = loaderData
-      ? loaderData.project.description.pt
+      ? loaderData.project.description.pt.split("\n\n")[0]!
       : "Case study do portfólio de Markos Serres.";
     return {
       meta: [
@@ -67,7 +67,11 @@ function CaseStudy() {
               <span className="label-eyebrow">{project.category[lang]}</span>
             </div>
             <h1 className="mt-4 font-display text-5xl leading-[0.9] font-bold sm:text-8xl">{title}</h1>
-            <p className="mt-6 max-w-2xl text-lg text-muted-foreground">{project.description[lang]}</p>
+            <div className="mt-6 max-w-2xl space-y-4 text-lg text-muted-foreground">
+              {project.description[lang].split("\n\n").map((para, i) => (
+                <p key={i}>{para}</p>
+              ))}
+            </div>
 
             <dl className="mt-10 grid grid-cols-2 gap-6 border-t border-border pt-8 md:grid-cols-4">
               <div>
@@ -122,9 +126,11 @@ function CaseStudy() {
                 <h2 className="font-display text-3xl font-bold sm:text-4xl">{block.heading[lang]}</h2>
               </div>
               {block.body ? (
-                <p className="mt-4 max-w-3xl text-base leading-relaxed text-muted-foreground">
-                  {block.body[lang]}
-                </p>
+                <div className="mt-4 max-w-3xl space-y-4 text-base leading-relaxed text-muted-foreground">
+                  {block.body[lang].split("\n\n").map((para, i) => (
+                    <p key={i}>{para}</p>
+                  ))}
+                </div>
               ) : null}
               {block.media ? (
                 <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
