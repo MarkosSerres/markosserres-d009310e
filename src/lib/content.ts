@@ -1,3 +1,4 @@
+import arcadeHeroAsset from "@/assets/arcade-hero.png.asset.json";
 import type { Lang } from "./i18n";
 
 export type Bi = { pt: string; en: string };
@@ -32,6 +33,8 @@ export type Project = {
   accent?: "primary" | "cyan" | "violet";
   span?: "wide" | "tall" | "normal";
   blocks?: CaseBlock[];
+  /** Real hero image URL (CDN). When present, replaces the placeholder. */
+  heroImage?: string;
 };
 
 export const projects: Project[] = [
@@ -215,6 +218,7 @@ export const projects: Project[] = [
     featured: true,
     projectType: "product",
     span: "wide",
+    heroImage: arcadeHeroAsset.url,
     blocks: [
       {
         heading: { pt: "Overview", en: "Overview" },
