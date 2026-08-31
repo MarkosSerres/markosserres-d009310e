@@ -42,7 +42,7 @@ export function ProjectCard({ project, className }: { project: Project; classNam
           <h3 className="font-display text-2xl leading-tight font-bold">{title}</h3>
           <ArrowUpRight className="mt-1 size-5 shrink-0 text-muted-foreground transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" />
         </div>
-        <p className="text-sm text-muted-foreground">{project.description[lang]}</p>
+        <p className="text-sm text-muted-foreground">{project.description[lang].split("\n\n")[0]}</p>
 
         <div className="grid max-h-0 grid-rows-[0fr] overflow-hidden opacity-0 transition-all duration-500 group-hover:max-h-52 group-hover:grid-rows-[1fr] group-hover:opacity-100 motion-reduce:max-h-52 motion-reduce:grid-rows-[1fr] motion-reduce:opacity-100">
           <div className="min-h-0 space-y-3 pt-2">

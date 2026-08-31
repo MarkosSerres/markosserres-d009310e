@@ -22,7 +22,7 @@ export const Route = createFileRoute("/projects/$slug")({
   head: ({ params, loaderData }) => {
     const title = loaderData ? `${loaderData.project.titleEN} — Markos Serres` : "Projeto — Markos Serres";
     const description = loaderData
-      ? loaderData.project.description.pt
+      ? loaderData.project.description.pt.split("\n\n")[0]!
       : "Case study do portfólio de Markos Serres.";
     return {
       meta: [
