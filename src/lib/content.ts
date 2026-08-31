@@ -218,6 +218,7 @@ export const projects: Project[] = [
     featured: true,
     projectType: "product",
     span: "wide",
+    heroImage: arcadeHeroAsset.url,
     blocks: [
       {
         heading: { pt: "Overview", en: "Overview" },
